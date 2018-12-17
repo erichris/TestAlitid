@@ -1,4 +1,4 @@
-var io = require('socket.io')(process.env.PORT || 26495);
+var io = require('socket.io')(process.env.PORT || 80);
 const { Pool, Client } = require('pg')
 
 console.log('Database starting...');
@@ -14,7 +14,7 @@ pool.query('SELECT NOW()', (err, res) => {
   //console.log(err, res)
   pool.end()
 })
-
+/*
 const client = new Client({
   user: 'alitid_1',
   host: 'localhost',
@@ -22,6 +22,16 @@ const client = new Client({
   password: 'Nomorelove12',
   port: 5432,
 })
+*/
+
+const client = new Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'Playeras',
+  password: 'Nomorelove12',
+  port: 5432,
+})
+
 client.connect()
 
 console.log('Database started');
