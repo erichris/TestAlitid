@@ -1,4 +1,4 @@
-var io = require('socket.io')(process.env.PORT || 3000);
+var io = require('socket.io')(process.env.PORT || 26495);
 const { Pool, Client } = require('pg')
 
 console.log('Database starting...');
