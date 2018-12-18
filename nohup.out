@@ -1,0 +1,63 @@
+Database starting...
+Database started
+Server starting
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::26495
+    at Server.setupListenHandle [as _listen2] (net.js:1360:14)
+    at listenInCluster (net.js:1401:12)
+    at Server.listen (net.js:1485:7)
+    at Server.listen.Server.attach (/home/erichris/webapps/alitid/node_modules/socket.io/lib/index.js:273:9)
+    at new Server (/home/erichris/webapps/alitid/node_modules/socket.io/lib/index.js:59:17)
+    at Server (/home/erichris/webapps/alitid/node_modules/socket.io/lib/index.js:44:41)
+    at Object.<anonymous> (/home/erichris/webapps/alitid/server.js:1:92)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+Database starting...
+Database started
+Server starting
+client connected
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Waldi' AND "ID2" = '123456';
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+Database starting...
+Database started
+Server starting
+client connected
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+client connected
+client connected
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi3' AND "ID2" = '123456';
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+client connected
+client connected
+client connected
+client connected
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+client connected
+Database starting...
+Database started
+Server starting
+client connected
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123';
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';
+Database starting...
+Database started
+Server starting
+client connected
+OnMessage
+SELECT id, app FROM public."Login_planescape" WHERE "ID1" = 'Wladi' AND "ID2" = '123456';

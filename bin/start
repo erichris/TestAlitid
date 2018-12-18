@@ -1,0 +1,5 @@
+#!/bin/sh
+/sbin/pidof /home/erichris/webapps/alitid/bin/node > /dev/null 2>&1 && exit 0
+mkdir -p /home/erichris/webapps/alitid/run
+nohup /home/erichris/webapps/alitid/bin/node /home/erichris/webapps/alitid/hello-world.js > /dev/null 2>&1 &
+/sbin/pidof /home/erichris/webapps/alitid/bin/node > /home/erichris/webapps/alitid/run/node.pid

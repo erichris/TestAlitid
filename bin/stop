@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/pkill -f /home/erichris/webapps/alitid/bin/node && rm -f /home/erichris/webapps/alitid/run/node.pid
