@@ -3,6 +3,7 @@ const { Pool, Client } = require('pg')
 
 console.log('Database starting...');
 
+
 const pool = new Pool({
   user: 'alitid_1',
   host: 'localhost',
@@ -11,10 +12,20 @@ const pool = new Pool({
   port: 5432,
 })
 
+/*
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'Playeras',
+  password: 'Nomorelove12',
+  port: 5432,
+})
+*/
 pool.query('SELECT NOW()', (err, res) => {
   //console.log(err, res)
   pool.end()
 })
+
 
 const client = new Client({
   user: 'alitid_1',
@@ -58,10 +69,46 @@ io.on('connection', function(socket){
 	MyQuery += ';';
 	console.log(MyQuery);
 	
+	var DeviceQuery = 'SELECT "ID_Movil1" FROM public."Login_planescape" WHERE "ID1" = ';
+	DeviceQuery += "'" + user + "'";
+	DeviceQuery += ' AND "ID2" = ';
+	DeviceQuery += "'" + pass + "'"
+	DeviceQuery += ';';
+	console.log(DeviceQuery);
+	
+	var UpdateDevice = 'UPDATE public."Login_planescape" SET "ID_Movil1" = ' ;
+	UpdateDevice += "'" + deviceID + "'";
+	UpdateDevice += ' WHERE "ID1" = ';
+	UpdateDevice += "'" + user + "'";
+	UpdateDevice += ';';
+	console.log(UpdateDevice);
+	
     client.query(MyQuery, (err, res) => {
 	  //console.log(err, res.rows[0])
 	  if(res.rows[0] != null){
-		  socket.emit('Loged', res.rows[0]['id'], res.rows[0]['app']);
+		  client.query(DeviceQuery, (errd, resd) => {
+			  console.log(deviceID)
+			  console.log(resd.rows[0]['ID_Movil1'])
+			  if(resd.rows[0]['ID_Movil1'] == "" || resd.rows[0]['ID_Movil1'] == deviceID){
+				  
+				  
+				  
+				  socket.emit('Loged', res.rows[0]['id'], res.rows[0]['app']);
+				  client.query(UpdateDevice, (erru, resu) => {
+					  console.log(resu + " " + erru);
+					  client.query('COMMIT');
+					  console.log("end");
+				  })
+			  }else{
+				  socket.emit('NotLoged', "Este codigo ya fue usado");
+			  }
+			  //client.end()
+			  return res;
+		  })
+		  
+		  console.log(MyQuery);
+		  
+		  //socket.emit('Loged', res.rows[0]['id'], res.rows[0]['app']);
 	  }else{
 		  socket.emit('NotLoged', "Usuario o Contraseña incorrectos");
 	  }
